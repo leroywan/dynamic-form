@@ -1,4 +1,6 @@
 import React from 'react'
+import { FieldErrors, useForm, UseFormRegister } from "react-hook-form";
+
 import './DynamicForm.css'
 
 export type FieldTags = "input" | "select" | "textarea"
@@ -38,18 +40,20 @@ export interface FormField {
   type: InputType
   human_label: string
   conditional?: Conditional
+  required?: boolean
 }
 
 interface DynamicFormProps {
   formFields: FormField[];
 }
 
-function renderFormTag(field: FormField) {
+function renderFormTag(field: FormField, register: UseFormRegister<any>, errors: FieldErrors) {
   switch (field.tag) {
     case 'input':
       return <div className="form-field" key={field.name}>
         <label className="form-field__label" htmlFor={field.name}>{field.human_label}</label>
-        <input className="form-field__input" id={field.name} name={field.name} type={field.type} />
+        <input className="form-field__input" id={field.name} type={field.type} {...register(field.name, { required: field.required })} />
+        {errors[field.name] && <span className="form-field__error">This field is required</span>}
       </div>
     // TODO: Add <select>
     // case 'select':
@@ -63,8 +67,11 @@ function renderFormTag(field: FormField) {
 }
 
 export function DynamicForm({formFields}: DynamicFormProps) {
-  return <form className="form">
-    {formFields.map((field) => renderFormTag(field))}
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = (data: FormField) => console.log(data);
+
+  return <form className="form" onSubmit={handleSubmit(onSubmit)}>
+    {formFields.map((field) => renderFormTag(field, register, errors))}
     <button className="form__submit">Submit</button>
   </form>
 }

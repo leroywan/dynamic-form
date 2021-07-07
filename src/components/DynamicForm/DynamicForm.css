@@ -25,6 +25,11 @@
   height: var(--font-size-2);
 }
 
+.form-field__error {
+  font-size: var(--font-size-0);
+  color: var(--warning-red);
+}
+
 .form__submit {
   margin-top: var(--spacing-3)
 }
