@@ -1,3 +1,19 @@
-.App {
-  margin: 16px;
+.app::before, .app::after{
+  content: ' ';
+  display: table;
+}
+
+.header {
+  padding: var(--spacing-3)
+}
+
+.logo-container { 
+  width: 45px;
+  height: 45px;
+}
+
+.content-wrapper {
+  padding: 0 var(--spacing-3);
+  max-width: var(--page-width--content);
+  margin: 0 auto;
 }
