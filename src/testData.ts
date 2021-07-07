@@ -1,4 +1,6 @@
-const testData = [{
+import {FormField} from './components/DynamicForm'
+
+const testData: FormField[] = [{
   "tag": "input",
 	"name": "first_name",
   "type": "text",

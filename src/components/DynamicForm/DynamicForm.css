@@ -1,0 +1,30 @@
+.form-field {
+  display: block;
+  margin-bottom: var(--spacing-2)
+}
+
+.form-filed:last-child {
+  margin-bottom: 0;
+}
+
+.form-field__label {
+  font-size: 1.1rem;
+  display: block;
+  width: 100%;
+  margin-bottom: var(--spacing-0);
+}
+
+.form-field__input {
+  display: block;
+  width: 100%;
+}
+
+.form-field__input[type="checkbox"] {
+  cursor: pointer;
+  width: var(--font-size-2);
+  height: var(--font-size-2);
+}
+
+.form__submit {
+  margin-top: var(--spacing-3)
+}
