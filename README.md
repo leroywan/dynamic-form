@@ -8,7 +8,7 @@
 ## Demo
 ![sparrow](https://user-images.githubusercontent.com/16429494/124963896-5d921f80-dfee-11eb-9482-3022dd32f0ec.gif)
 
-## Get started
+## Getting started
 1. Clone this repo
 2. Run `yarn install`
 3. Run `yarn start` to start the development server
