@@ -19,6 +19,7 @@ const testData: FormField[] = [
     name: "email",
     type: "email",
     human_label: "Email Address",
+    required: true,
   },
   {
     tag: "input",
@@ -37,12 +38,14 @@ const testData: FormField[] = [
     name: "date_of_birth",
     type: "date",
     human_label: "Date of Birth",
+    required: true,
   },
   {
     tag: "input",
     name: "parental_consent",
     type: "checkbox",
     human_label: "Parental Consent",
+    required: true,
     conditional: {
       name: "date_of_birth",
       show_if: (value) => {
