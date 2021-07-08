@@ -64,6 +64,7 @@ function renderFormTag(
           name={field.name}
           label={field.human_label}
           type={field.type}
+          required={field.required}
           error={renderErrorMessage(field.name, errors)}
           register={register(field.name, {
             required: field.required,

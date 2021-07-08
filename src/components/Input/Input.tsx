@@ -33,20 +33,33 @@ interface InputProps {
   name: string;
   label: string;
   type: InputType;
+  required?: boolean;
   error?: string;
   register: UseFormRegisterReturn;
 }
 
-export function Input({ name, label, type, error, register }: InputProps) {
+export function Input({
+  name,
+  label,
+  type,
+  required,
+  error,
+  register,
+}: InputProps) {
+  const labelClass = required
+    ? "form-field__label form-field__label--required"
+    : "form-field__label";
+
   return (
     <div className="form-field">
-      <label className="form-field__label" htmlFor={name}>
+      <label className={labelClass} htmlFor={name}>
         {label}
       </label>
       <input
         className="form-field__input"
         id={name}
         type={type}
+        required={required}
         {...register}
       />
       {error && <span className="form-field__error">{error}</span>}

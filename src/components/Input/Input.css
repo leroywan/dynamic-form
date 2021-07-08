@@ -14,6 +14,12 @@
   margin-bottom: var(--spacing-0);
 }
 
+.form-field__label--required::after {
+  content: "*";
+  margin-left: var(--spacing-0);
+  color: var(--warning-red);
+}
+
 .form-field__input {
   display: block;
   width: 100%;
