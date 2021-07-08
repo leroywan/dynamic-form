@@ -59,7 +59,6 @@ export function Input({
         className="form-field__input"
         id={name}
         type={type}
-        required={required}
         {...register}
       />
       {error && <span className="form-field__error">{error}</span>}
