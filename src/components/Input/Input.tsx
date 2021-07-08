@@ -4,7 +4,6 @@ import { UseFormRegisterReturn } from "react-hook-form";
 
 import "./Input.css";
 
-export type FieldTags = "input" | "select" | "textarea";
 export type InputType =
   | "button"
   | "checkbox"
