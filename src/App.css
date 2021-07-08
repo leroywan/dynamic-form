@@ -1,13 +1,18 @@
-.app::before, .app::after{
-  content: ' ';
+.app::before,
+.app::after {
+  content: " ";
   display: table;
 }
 
-.header {
-  padding: var(--spacing-3)
+.app {
+  padding-bottom: var(--spacing-8);
 }
 
-.logo-container { 
+.header {
+  padding: var(--spacing-3);
+}
+
+.logo-container {
   width: 45px;
   height: 45px;
 }

@@ -1,6 +1,6 @@
 .form-field {
   display: block;
-  margin-bottom: var(--spacing-2)
+  margin-bottom: var(--spacing-2);
 }
 
 .form-filed:last-child {
@@ -31,5 +31,5 @@
 }
 
 .form__submit {
-  margin-top: var(--spacing-3)
+  margin-top: var(--spacing-3);
 }
