@@ -10,9 +10,12 @@
 
 ## Get started
 1. Clone this repo
-2. Run `yarn add`
-3. Run `yarn start`
+2. Run `yarn install`
+3. Run `yarn start` to start the development server
 4. Test the app on `http://localhost:3000/`
+
+### To test
+Run `yarn test src/components/DynamicForm/DynamicForm.test.tsx`
 
 ### Example Data
 ```
