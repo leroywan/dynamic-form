@@ -38,6 +38,13 @@ interface InputProps {
   register: UseFormRegisterReturn;
 }
 
+interface ErrorMessageProps {
+  message: string;
+}
+const ErrorMessage = ({ message }: ErrorMessageProps) => (
+  <span className="form-field__error">{message}</span>
+);
+
 export function Input({
   name,
   label,
@@ -61,7 +68,7 @@ export function Input({
         type={type}
         {...register}
       />
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 }
