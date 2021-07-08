@@ -1,39 +1,16 @@
 import React from "react";
 import {
-  FieldError,
   FieldErrors,
   useForm,
   UseFormRegister,
   UseFormWatch,
 } from "react-hook-form";
 
+import { Input, InputType } from "../Input";
+
 import "./DynamicForm.css";
 
 export type FieldTags = "input" | "select" | "textarea";
-
-export type InputType =
-  | "button"
-  | "checkbox"
-  | "color"
-  | "date"
-  | "datetime-local"
-  | "email"
-  | "file"
-  | "hidden"
-  | "image"
-  | "month"
-  | "number"
-  | "password"
-  | "radio"
-  | "range"
-  | "reset"
-  | "search"
-  | "submit"
-  | "tel"
-  | "text"
-  | "time"
-  | "url"
-  | "week";
 
 export interface Conditional {
   name: string;
@@ -53,14 +30,16 @@ interface DynamicFormProps {
   formFields: FormField[];
 }
 
-function renderFormError(error: FieldError) {
-  if (!error) return null;
+function renderErrorMessage(name: string, errors: FieldErrors) {
+  if (!(name in errors)) {
+    return;
+  }
 
-  switch (error.type) {
+  switch (errors[name].type) {
     case "required":
-      return <span className="form-field__error">This field is required</span>;
+      return "This field is required";
     default:
-      return <span className="form-field__error">This field is invalid</span>;
+      return "This field is invalid";
   }
 }
 
@@ -80,26 +59,22 @@ function renderFormTag(
   switch (field.tag) {
     case "input":
       return (
-        <div className="form-field" key={field.name}>
-          <label className="form-field__label" htmlFor={field.name}>
-            {field.human_label}
-          </label>
-          <input
-            className="form-field__input"
-            id={field.name}
-            type={field.type}
-            {...register(field.name, {
-              required: field.required,
-              shouldUnregister: true,
-            })}
-          />
-          {renderFormError(errors[field.name])}
-        </div>
+        <Input
+          key={field.name}
+          name={field.name}
+          label={field.human_label}
+          type={field.type}
+          error={renderErrorMessage(field.name, errors)}
+          register={register(field.name, {
+            required: field.required,
+            shouldUnregister: true,
+          })}
+        />
       );
-    // TODO: Add <select>
+    // TODO: Add <select> component
     // case 'select':
     //   return
-    // TODO: Add <textarea>
+    // TODO: Add <textarea> component
     // case 'textarea':
     //   return
     default:

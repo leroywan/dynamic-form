@@ -1,1 +1,2 @@
-export {DynamicForm} from './DynamicForm'
+export { DynamicForm } from "./DynamicForm";
+export { Input } from "./Input";
