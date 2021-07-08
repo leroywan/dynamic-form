@@ -66,6 +66,7 @@ export function Input({
         className="form-field__input"
         id={name}
         type={type}
+        aria-label={name}
         {...register}
       />
       {error && <ErrorMessage message={error} />}
